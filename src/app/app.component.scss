@@ -1,0 +1,28 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-responsive {
+  mat-toolbar {
+    width: 100%;
+  }
+}
+
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-toolbar {
+    width: 100%;
+    overflow: auto;
+  }
+  mat-form-field {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+}

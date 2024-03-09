@@ -1,0 +1,73 @@
+<div mat-dialog-title class="form">
+  <h1>Employee Form</h1>
+</div>
+<form [formGroup]="empComp" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="Ex. WhyouDev" formControlName="userName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" placeholder="Ex. Wahyu" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" placeholder="Ex. Ramadhan" formControlName="lastName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. whyoudev@gmail.com" formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Birth Date</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Ex. 1/2/1970" formControlName="birthDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Salary</mat-label>
+        <input matInput type="number" placeholder="Ex. Rp. 3,000,000" formControlName="basicSalary">
+      </mat-form-field>
+    </div>
+
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="status">
+        <mat-label><strong>Status: </strong></mat-label>
+        <mat-radio-button value="active">Active</mat-radio-button>
+        <mat-radio-button value="nonActive">Non Active</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Group</mat-label>
+        <mat-select formControlName="group">
+          @for (gr of groups; track gr) {
+            <mat-option [value]="gr.viewValue">{{gr.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Ex. Your Description" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+  </div>
+</form>
